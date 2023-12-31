@@ -23,7 +23,7 @@ const isMobile = useMediaQuery('max-width:375px');
       main:'#00000',
       sub:'#B4B3B8',
       filter:'#8A8991',
-      input:'#00000'
+      input:'#000000'
     },
 
     background:{
