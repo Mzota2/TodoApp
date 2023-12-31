@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Box , Container, Typography} from '@mui/material';
+import {createTheme} from '@mui/material/styles'
+import React from 'react';
+import { useTodoContext } from './Components/State/AuthContext';
+import Header from './Components/Header/Header';
+import CreateTask from './Components/CreateTask/CreateTask';
+import TaskList from './Components/TaskList/TaskList';
 function App() {
+  const {appTheme, tasks} = useTodoContext();
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=''>
+      <Box className="todo-top">
+        <div className="app-background-image-container">
+          <img className='app-background-image' src={appTheme?.palette?.background?.image} alt="background" />
+        </div>
+        
+      </Box>
+      <Box bgcolor={appTheme?.palette?.background?.main} className="todo-bottom"></Box>
+      <div className="container">
+        <Box className="todo-main-container">
+          
+          <Header/>
+          <CreateTask/>
+          <TaskList/>
+
+        {tasks?.length? <Typography className='bottom-text' variant='p' component={'p'}>Drag and drop to reoder list</Typography>:<></>}
+
+        </Box>
+      </div>
+      
+      
     </div>
   );
 }

@@ -1,0 +1,98 @@
+.todo-tasks-list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+
+}
+.todo-task-container{
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    gap: 1em;
+
+}
+.todo-task-container:first-child{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.close-icon-container{
+    margin-left: auto;
+}
+.close-icon{
+    width: 22px !important;
+    cursor: pointer;
+   
+}
+
+.todo-title{
+    font-weight: 300;
+}
+.list-options-middle-desktop{
+    display: none;
+}
+
+.tasks-list-options{
+    margin-top: 0.1em;
+    height: 48px;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    padding: 0 1em;
+    color: grey;
+}
+
+.list-options-middle-mobile{
+    height: 48px;
+    margin-top: 1em;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    background-color: white;
+    
+}
+
+.bottom-text{
+    text-align: center;
+    color: #8A8991;
+    font-size: 0.85rem;
+  
+}
+
+.list-option{
+    font-size: 0.75rem !important;
+    font-family: 'Josefin Sans', sans-serif !important;
+    cursor: pointer;
+}
+
+.list-filter-option{
+    cursor: pointer;
+    font-size: 0.87rem;
+    font-family: 'Josefin Sans', sans-serif !important;
+}
+
+.active-item{
+    color: var(--brightBlue) !important;
+}
+
+@media (min-width:500px) {
+    .list-options-middle-mobile{
+        display: none;
+    }
+
+    .list-options-middle-desktop{
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+    
+}
