@@ -12,6 +12,7 @@ function CreateTask() {
   });
 
   function handleChange(e){
+   
     setTask(prev =>{
       return{
         ...prev,
@@ -24,12 +25,12 @@ function CreateTask() {
 
 
 
-  function handleSubmit(){
+  function handleSubmit(e){
+    e.preventDefault();
     const localTasks = JSON.parse(localStorage.getItem('todo-tasks'));
     if(!localTasks && task.title){
-      const singleTask = localStorage.setItem('todo-tasks', JSON.stringify([task]))
-      setTasks(singleTask);
-      setTasks(singleTask);
+      localStorage.setItem('todo-tasks', JSON.stringify([task]))
+      setTasks([task]);
       setTask({ title:'',
       isCompleted:false});
     }
@@ -54,14 +55,20 @@ function CreateTask() {
 
   return (
     <Container className='app-container'>
+      <form onSubmit={handleSubmit} >
         <Box bgcolor={appTheme?.palette?.primary?.main} className="todo-input-container">
-          
-          <div onClick={handleSubmit} style={{border:`1px solid ${appTheme?.palette?.secondary?.sub}`}} className={`${isCompleted?'completedTodo':""} todo-input-radio`}>
-                {task.title && <Check className='check-icon'/>}
-          </div>
 
-            <input style={{color:appTheme?.palette?.secondary?.input}} name='title' value={task?.title} onChange={handleChange} placeholder='Create a new todo...' type="text" className='todo-input-text' />
+          
+
+            <div onClick={handleSubmit} style={{border:`1px solid ${appTheme?.palette?.secondary?.sub}`}} className={`${isCompleted?'completedTodo':""} todo-input-radio`}>
+                  {task.title && <Check className='check-icon'/>}
+            </div>
+
+              <input style={{color:appTheme?.palette?.secondary?.input}} name='title' value={task?.title} onChange={handleChange} placeholder='Create a new todo...' type="text" className='todo-input-text' />
+          
+        
         </Box>
+        </form>
 
     </Container>
   )
